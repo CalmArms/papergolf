@@ -15,12 +15,14 @@
     // will be set by the startup() function.
 
     let video = null;
-    let canvas = null;
+    let canvasPrior = null;
+    let canvasNext = null;
     let startbutton = null;
 
     function startup() {
         video = document.getElementById("video");
-        canvas = document.getElementById("canvas");
+        canvasPrior = document.getElementById("canvasPrior");
+        canvasNext = document.getElementById("canvasNext");
         startbutton = document.getElementById("done");
 
         navigator.mediaDevices
@@ -48,8 +50,10 @@
 
                     video.setAttribute("width", width);
                     video.setAttribute("height", height);
-                    canvas.setAttribute("width", width);
-                    canvas.setAttribute("height", height);
+                    canvasPrior.setAttribute("width", width);
+                    canvasPrior.setAttribute("height", height);
+                    canvasNext.setAttribute("width", width);
+                    canvasNext.setAttribute("height", height);
                     streaming = true;
                 }
             },
@@ -67,12 +71,21 @@
     }
 
     function takepicture() {
-        
-        const context = canvas.getContext("2d");
+        // const contextPrior = canvasPrior.getContext("2d");
+        const contextNext = canvasNext.getContext("2d");
         if (width && height) {
-            canvas.width = width;
-            canvas.height = height;
-            context.drawImage(video, 0, 0, width, height);
+            // // set contextPrior to the current contextNext
+            // canvasPrior.width = contextNext.width;
+            // canvasPrior.height = contextNext.height;
+            // contextPrior.drawImage(canvasNext, 0, 0, width, height);
+
+            // set contextNext to the current video frame
+            canvasNext.width = width;
+            canvasNext.height = height;
+            contextNext.drawImage(video, 0, 0, width, height);
+
+            // const [x, y] = magicStroke("canvasPrior", "canvasNext");
+            // moveGolfBall({x, y}, 100)
 
             /**
              * This is where we will need to calculate the

@@ -39,7 +39,8 @@
             <div class="camera">
                 <video id="video"></video>
             </div>
-            <canvas id="canvas"> </canvas>
+            <canvas id="canvasPrior"> </canvas>
+            <canvas id="canvasNext"> </canvas>
         </div>
         <div class="actions">
             <button id="done">Done</button>
@@ -56,8 +57,10 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    <script async src="https://docs.opencv.org/master/opencv.js"></script>
     <script src="./game.js"></script>
     <script src="./camera.js"></script>
+    <script src="./magic.js"></script>
 </body>
 
 </html>
