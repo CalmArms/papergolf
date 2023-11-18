@@ -73,6 +73,7 @@
 
     function takepicture() {
         if (state.isFirstHit) {
+            console.log('first hit')
             const contextNext = canvasNext.getContext("2d");
               // set contextPrior to the current contextNext
             canvasNext.width = width;
@@ -81,22 +82,29 @@
             state.isFirstHit = false
             return
         }
+        console.log('non-first hit')
 
         const contextPrior = canvasPrior.getContext("2d");
         const contextNext = canvasNext.getContext("2d");
         if (width && height) {
             // set contextPrior to the current contextNext
-            canvasPrior.width = contextNext.width;
-            canvasPrior.height = contextNext.height;
-            contextPrior.drawImage(canvasNext, 0, 0, width, height);
+            canvasPrior.width = canvasNext.width;
+            canvasPrior.height = canvasNext.height;
+            // contextPrior.drawImage(canvasNext, 0, 0, width, height);
+            const data = contextNext.getImageData(0, 0, width, height);
+            contextPrior.putImageData(data, 0, 0);
+
 
             // set contextNext to the current video frame
             canvasNext.width = width;
             canvasNext.height = height;
             contextNext.drawImage(video, 0, 0, width, height);
 
-            const [x, y] = magicStroke("canvasPrior", "canvasNext");
-            moveGolfBall({x, y}, 100)
+            const stroke = magicStroke("canvasPrior", "canvasNext");
+
+            if (stroke) {
+                moveGolfBall({x, y}, 100)
+            }
 
             addHit()
             changeScreen('pre-shot')
