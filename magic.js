@@ -111,7 +111,5 @@ function _lineDiff(canvasPriorID, canvasNextID) {
   hierarchy.delete();
 
   console.log("MAGIC:", "Number of Lines:", newLines.length);
-
-  drawLines(newLines, image1.cols, image1.rows);
   return newLines;
 }
