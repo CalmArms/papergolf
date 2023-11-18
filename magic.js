@@ -56,7 +56,7 @@ function _lineDiff(canvasPriorID, canvasNextID) {
   cv.threshold(diff, diff, thresholdValue, 255, cv.THRESH_BINARY);
 
   // // Show image diff
-  // cv.imshow("diffCanvas", diff);
+  cv.imshow("canvasDebug", diff);
 
   // Find Contours
   let contours = new cv.MatVector();
@@ -112,5 +112,21 @@ function _lineDiff(canvasPriorID, canvasNextID) {
   hierarchy.delete();
 
   console.log("MAGIC:", "Number of Lines:", newLines.length);
+  _drawLines(newLines);
   return newLines;
+}
+
+function _drawLines(lines) {
+  let linesDiffCanvas = document.getElementById("canvasDebug");
+  let linesDiffContext = linesDiffCanvas.getContext("2d");
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+    linesDiffContext.beginPath();
+    linesDiffContext.moveTo(line[0], line[1]);
+    linesDiffContext.lineTo(line[2], line[3]);
+    linesDiffContext.strokeStyle = "red";
+    linesDiffContext.lineWidth = 2;
+    linesDiffContext.stroke();
+  }
 }
