@@ -21,6 +21,7 @@
 
     function startup() {
         video = document.getElementById("video");
+        video.playsInline = true
         canvasPrior = document.getElementById("canvasPrior");
         canvasNext = document.getElementById("canvasNext");
         startbutton = document.getElementById("done");

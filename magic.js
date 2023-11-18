@@ -1,5 +1,6 @@
 function magicStroke(canvasPriorID, canvasNextID) {
   let lines = _lineDiff(canvasPriorID, canvasNextID);
+  console.log(lines)
   const longest = _longestLine(lines);
   const stroke = _lineToComponents(longest);
   console.log("MAGIC:", "stroke:", stroke || "no stroke found");
@@ -36,6 +37,7 @@ function _longestLine(lines) {
 }
 
 function _lineDiff(canvasPriorID, canvasNextID) {
+  console.log(canvasPriorID, canvasNextID)
   console.log("MAGIC:", "Generating Image Line Diff");
   const image1 = cv.imread(canvasPriorID);
   const image2 = cv.imread(canvasNextID);
