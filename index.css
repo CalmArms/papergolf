@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'sniglet';
-    src: url('./sniglet-webfont.woff') format('woff'), /* Modern Browsers */
-         url('./sniglet-webfont.ttf') format('truetype'); /* Safari, Android, iOS */
+    src: url('./sniglet.woff') format('woff'), /* Modern Browsers */
+         url('./sniglet.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
 
