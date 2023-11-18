@@ -71,30 +71,31 @@
     }
 
     function takepicture() {
-        // const contextPrior = canvasPrior.getContext("2d");
+        if (state.isFirstHit) {
+            const contextNext = canvasNext.getContext("2d");
+              // set contextPrior to the current contextNext
+            canvasNext.width = width;
+            canvasNext.height = height;
+            contextNext.drawImage(video, 0, 0, width, height);
+            state.isFirstHit = false
+            return
+        }
+
+        const contextPrior = canvasPrior.getContext("2d");
         const contextNext = canvasNext.getContext("2d");
         if (width && height) {
-            // // set contextPrior to the current contextNext
-            // canvasPrior.width = contextNext.width;
-            // canvasPrior.height = contextNext.height;
-            // contextPrior.drawImage(canvasNext, 0, 0, width, height);
+            // set contextPrior to the current contextNext
+            canvasPrior.width = contextNext.width;
+            canvasPrior.height = contextNext.height;
+            contextPrior.drawImage(canvasNext, 0, 0, width, height);
 
             // set contextNext to the current video frame
             canvasNext.width = width;
             canvasNext.height = height;
             contextNext.drawImage(video, 0, 0, width, height);
 
-            // const [x, y] = magicStroke("canvasPrior", "canvasNext");
-            // moveGolfBall({x, y}, 100)
-
-            /**
-             * This is where we will need to calculate the
-             * x and y and velocity to move the ball below
-             */
-            moveGolfBall({
-                x: 0,
-                y: -10,
-            }, 100)
+            const [x, y] = magicStroke("canvasPrior", "canvasNext");
+            moveGolfBall({x, y}, 100)
 
             addHit()
             changeScreen('pre-shot')

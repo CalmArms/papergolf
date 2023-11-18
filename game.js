@@ -2,6 +2,7 @@ const state = {
     screen: "start", // "start", "pre-shot", "camera", "finish"
     par: 4,
     hits: 0,
+    isFirstHit: true,
 }
 
 function reset() {
