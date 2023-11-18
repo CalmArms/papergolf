@@ -1,0 +1,22 @@
+{
+  "name": "papergolf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CalmArms/papergolf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CalmArms/papergolf/issues"
+  },
+  "homepage": "https://github.com/CalmArms/papergolf#readme",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
