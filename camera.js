@@ -108,7 +108,7 @@
             const stroke = magicStroke("canvasPrior", "canvasNext");
 
             if (stroke) {
-                moveGolfBall({x: stroke[0], y: stroke[1]}, 100)
+                golfBall.setVelocity(stroke[0], stroke[1]);
             }
 
             addHit()

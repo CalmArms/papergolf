@@ -69,11 +69,6 @@ function update() {
     // this.physics.world.collide(golfBall, green, bounceBall, null, this);
 }
 
-function moveGolfBall(direction, velocity) {
-    // Set the velocity of the golf ball
-    golfBall.setVelocity(direction.x * velocity, direction.y * velocity);
-}
-
 function render() {
     document.getElementById('par').innerText = state.par
     document.getElementById('hits').innerText = state.hits
