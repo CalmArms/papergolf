@@ -166,3 +166,12 @@ button.start {
 .actions {
     margin-bottom: 10vh;
 }
+
+.finish-screen .top {
+    margin-top: 10vh;
+}
+
+.finish-screen h1 {
+    text-align: center;
+    font-size: 56px;
+}

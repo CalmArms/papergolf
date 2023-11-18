@@ -67,6 +67,7 @@
     }
 
     function takepicture() {
+        
         const context = canvas.getContext("2d");
         if (width && height) {
             canvas.width = width;
@@ -77,22 +78,13 @@
              * This is where we will need to calculate the
              * x and y and velocity to move the ball below
              */
-
             moveGolfBall({
                 x: 0,
                 y: -10,
             }, 100)
 
-
-            const data = canvas.toDataURL("image/png");
-
-            // update the state to say that you took a shot
-
-
-            // console.log('took a shot!')
-            // console.log('TAKEN PHOTO')
-            // console.log("HERES THE DATA:")
-            // console.log(data)
+            addHit()
+            changeScreen('pre-shot')
         }
     }
 
